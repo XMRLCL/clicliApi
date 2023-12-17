@@ -29,8 +29,6 @@ func CollectVideoRoutes(r *gin.RouterGroup) {
 		video.GET("live/get", api.GetUserLikeList)
 
 		video.GET("live", api.GetLike)
-
-		video.GET("livereview/list", api.GetReviewLiveList)
 		//需要用户登录
 		auth := video.Group("")
 		auth.Use(middleware.Auth())
@@ -60,6 +58,8 @@ func CollectVideoRoutes(r *gin.RouterGroup) {
 			manage.GET("search", api.AdminSearchVideo)
 			// 管理员删除视频
 			manage.POST("delete", api.AdminDeleteVideo)
+
+			manage.GET("livereview/list", api.GetReviewLiveList)
 			// 获取审核列表
 			manage.GET("review/list", api.GetReviewVideoList)
 			// 获取待审核视频资源
