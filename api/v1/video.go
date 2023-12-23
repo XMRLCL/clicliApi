@@ -412,7 +412,7 @@ func GetRecommendedVideo(ctx *gin.Context) {
 	resp.OK(ctx, "ok", gin.H{"videos": vo.ToSearchVideoVoList(videos)})
 }
 
-// 搜索视
+// 搜索视频
 func SearchVideo(ctx *gin.Context) {
 	keywords := ctx.Query("keywords")
 	page := convert.StringToInt(ctx.Query("page"))
